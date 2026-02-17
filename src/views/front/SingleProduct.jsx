@@ -19,7 +19,7 @@ function SingleProduct() {
         );
         setProduct(res.data.product);
       } catch (error) {
-        console.log(error.response);
+        console.error(err);
       }
     };
 
@@ -32,13 +32,9 @@ function SingleProduct() {
         product_id: id,
         qty,
       };
-
-      const response = await axios.post(`${API_BASE}/api/${API_PATH}/cart`, {
-        data,
-      });
-      console.log(response.data);
+      await axios.post(`${API_BASE}/api/${API_PATH}/cart`, { data });
     } catch (error) {
-      console.log(error.response);
+      console.error(err);
     }
   };
 
